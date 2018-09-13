@@ -49,8 +49,6 @@ C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\bin\roslyn\VBC
 C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\obj\Debug\testyoutube.csprojAssemblyReference.cache
-C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\obj\Debug\testyoutube.csproj.CoreCompileInputs.cache
-C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\obj\Debug\testyoutube.csproj.CopyComplete
 C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\obj\Debug\testyoutube.dll
 C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\obj\Debug\testyoutube.pdb
+C:\Users\1795162\Documents\GitHub\ASP.NET\testyoutube\testyoutube\obj\Debug\testyoutube.csprojResolveAssemblyReference.cache

@@ -98,7 +98,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style4">
-                        <asp:Button ID="Button1" runat="server" Text="Submit" Width="138px" />
+                        <asp:Button ID="Button1" runat="server" Text="Submit" Width="138px" OnClick="Button1_Click1" />
                         <input id="Reset1" class="auto-style8" type="reset" value="reset" runat="server" /></td>
                     <td>&nbsp;</td>
                 </tr>
