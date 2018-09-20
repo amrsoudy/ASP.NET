@@ -1,0 +1,67 @@
+﻿@model IEnumerable<cour3.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index </h2>
+<p>
+
+    @Html.ActionLink("create New","Create")
+
+
+</p>
+<table class="table">
+
+
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+
+        </th>
+        <th>
+
+            @Html.DisplayNameFor(model => model.Genre)
+
+        </th>
+
+        @foreach (var item in Model)
+        {
+
+        <tr>
+
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Title)
+
+
+            </td>
+            <td>
+
+                @Html.DisplayFor(model => item.Genre)
+
+
+            </td>
+
+            <td>
+
+                @Html.DisplayFor(model => item.year)
+
+
+            </td>
+
+
+
+        </tr>
+
+
+    }
+
+        @Html.ActionLink("Edit", "Edit")|
+        @Html.ActionLink("Details", "Details")|
+        @Html.ActionLink("Delete", "Delete")
+
+
+
+    </table>
