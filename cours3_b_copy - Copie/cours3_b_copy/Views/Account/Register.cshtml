@@ -1,0 +1,22 @@
+﻿@model cours3_b_copy.Models.Student
+<h2>Register</h2>
+
+<form action="/Account/save" method="post">
+
+
+
+    Studient Id   : @Html.Editor("StudentId")<br />
+    Studanr Name  : @Html.Editor("StudantName")<br />
+    Age           : @Html.Editor("Age")<br />
+    Password      : @Html.Editor("Password")<br />
+    isnewEnrolled : @Html.Editor("isNewlyEnrolled")<br />
+    Gender        : @Html.Editor("StudentGender")<br />
+    DOB           : @Html.Editor("DoB")<br />
+
+    <input type="submit" value="Save" />
+
+    @Html.ActionLink("Edit", "Edit")
+    @Html.ActionLink("Back to list", "Index")
+
+</form>
+
