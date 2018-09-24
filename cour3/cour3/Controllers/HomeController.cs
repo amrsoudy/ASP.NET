@@ -1,7 +1,6 @@
-﻿using System;
+﻿using cour3.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,41 +9,79 @@ namespace cour3.Controllers
 {
     public class HomeController : Controller
     {
+        List<Movie> listMovie = new List<Movie>();
+        // GET: CRUD
         public ActionResult Index()
         {
-            SqlConnection sqlConnection1 = new SqlConnection("Data Source=10.139.31.219;Initial Catalog=Northwind;User ID=sa;Password=1234");
+            listMovie = Utils.utils.getInstance().getMovies();
 
-            SqlCommand cmd = new SqlCommand();
-            SqlDataReader reader;
-
-            cmd.CommandText = "getListeFilms";
-            cmd.CommandType = CommandType.StoredProcedure;
-             cmd.Connection = sqlConnection1;
-            sqlConnection1.Open();
-            reader = cmd.ExecuteReader();
-
-            List<Models.Movie> result = new List<Models.Movie>();
-
-            while (reader.Read()) {
-
-                Models.Movie item = new Models.Movie()
-                {
-
-                    Title = reader["title"].ToString(),
-                    Genre = reader["genre"].ToString(),
-                    year = Int32.Parse(reader["year"].ToString())
-
-
-
-                };
-
-                result.Add(item);
-            }
-            sqlConnection1.Close();
-
-
-                return View(result);
+            
+            return View(listMovie);
         }
 
+        // GET: CRUD/Details/5
+        public ActionResult Details(int id)
+        {
+          
+            Movie movie1 = Utils.utils.getInstance().GetSingleMovie( id);
+
+
+            return View(movie1);
+        }
+
+        // GET: CRUD/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: CRUD/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                Movie movie1 = new Movie();
+                movie1.Id = Int32.Parse(collection["Id"]);
+                movie1.Title = collection["title"];
+                movie1.Genre = collection["genre"];
+                movie1.year = Int32.Parse(collection["year"]);
+
+               int x  = Utils.utils.getInstance().insertMovie(movie1);
+                ViewBag.num = x +" inserted ";
+
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: CRUD/Edit/5
+        public ActionResult Edit(int id)
+        {
+            Movie movie1 = Utils.utils.getInstance().GetSingleMovie( id);
+
+
+            return View(movie1);
+        }
+
+       
+        // GET: CRUD/Delete/5
+        public ActionResult Delete(int id)
+        {
+
+            Movie movie1 = Utils.utils.getInstance().GetSingleMovie( id);
+
+
+            return View(movie1);
+        }
+
+        // POST: CRUD/Delete/5
+        
+        }
     }
-}
+
