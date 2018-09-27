@@ -43,7 +43,7 @@ namespace EntityFrame.Controllers
             Utilitaire.Utils.getInstance().inserVote(collection["votenom"], collection.Get("listActivite"));
             ViewBag.mess = "inserted";
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Consulte");
         }
 
         public ActionResult Consulte() {
