@@ -112,15 +112,26 @@ namespace cour3.Utils
 
             int x  = cmd.ExecuteNonQuery();
 
-            List<Movie> listMovie = new List<Movie>();
-
-
             connection.Close();
             return x;
 
         }
 
+        internal void deleteItem(int id)
+        {
+            Movie mov = new Movie();
+            foreach (Movie movie in getListDao()) {
 
+                if (movie.Id == id) {
+
+                    mov = movie;
+
+                }
+
+            }
+            getListDao().Remove(mov);
+
+        }
 
         internal Movie GetSingleMovie( int id)
         {

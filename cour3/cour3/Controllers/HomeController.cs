@@ -9,24 +9,44 @@ namespace cour3.Controllers
 {
     public class HomeController : Controller
     {
-        List<Movie> listMovie = new List<Movie>();
+        private List<Movie> listMovie;
+        public List<Movie> getlistMovie()
+        {
+
+            if (listMovie != null)
+            {
+
+                return listMovie;
+            }
+            else
+            {
+
+                listMovie = Utils.utils.getInstance().getMovies();
+                return listMovie;
+
+            }
+        }
         // GET: CRUD
         public ActionResult Index()
         {
-            listMovie = Utils.utils.getInstance().getMovies();
 
-            
-            return View(listMovie);
+            return View(getlistMovie());
+
         }
 
-        // GET: CRUD/Details/5
         public ActionResult Details(int id)
         {
-          
-            Movie movie1 = Utils.utils.getInstance().GetSingleMovie( id);
 
+            var list = getlistMovie().Where(s => s.Id == id).Select(s => s);
+            Movie mov = new Movie();
 
-            return View(movie1);
+            foreach (Movie m in list)
+            {
+
+                mov = m;
+            }
+
+            return View(mov);
         }
 
         // GET: CRUD/Create
@@ -49,8 +69,8 @@ namespace cour3.Controllers
                 movie1.Genre = collection["genre"];
                 movie1.year = Int32.Parse(collection["year"]);
 
-               int x  = Utils.utils.getInstance().insertMovie(movie1);
-                ViewBag.num = x +" inserted ";
+                int x = Utils.utils.getInstance().insertMovie(movie1);
+                ViewBag.num = x + " inserted ";
 
                 return View();
             }
@@ -63,25 +83,46 @@ namespace cour3.Controllers
         // GET: CRUD/Edit/5
         public ActionResult Edit(int id)
         {
-            Movie movie1 = Utils.utils.getInstance().GetSingleMovie( id);
+            var list = getlistMovie().Where(s => s.Id == id).Select(s => s);
+            Movie mov = new Movie();
 
+            foreach (Movie m in list)
+            {
 
-            return View(movie1);
+                mov = m;
+            }
+
+            return View(mov);
         }
 
-       
+
         // GET: CRUD/Delete/5
+
         public ActionResult Delete(int id)
         {
+            var list = getlistMovie().Where(s => s.Id == id).Select(s => s);
+            Movie mov = new Movie();
 
-            Movie movie1 = Utils.utils.getInstance().GetSingleMovie( id);
+            foreach (Movie m in list)
+            {
 
+                mov = m;
+            }
 
-            return View(movie1);
+            return View(mov);
         }
 
-        // POST: CRUD/Delete/5
-        
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+
+                Utils.utils.getInstance().deleteItem(id);
+
+                return RedirectToAction("Index");
+                       
         }
+
+
     }
+}
 
