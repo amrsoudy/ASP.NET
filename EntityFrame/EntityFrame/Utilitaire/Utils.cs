@@ -97,6 +97,30 @@ namespace EntityFrame.Utilitaire
             return list;
         }
 
+        internal void updateActivite(string v1, string v2, string v3)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "UpdateActivite";
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@param0" ,v1));
+            cmd.Parameters.Add(new SqlParameter("@param1", v2));
+            cmd.Parameters.Add(new SqlParameter("@param2", v3));
+            cmd.Connection = connection;
+           
+                connection.Open();
+
+                int x = cmd.ExecuteNonQuery();
+
+          
+                connection.Close();
+          
+        
+
+
+        }
+
         internal void inserVote(string nom, string choix)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True");

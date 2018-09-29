@@ -52,6 +52,38 @@ namespace EntityFrame.Controllers
 
             return View(listvote);
         }
+        public ActionResult Edit(string Id ) {
+
+          var act = Utilitaire.Utils.getInstance().getListActivite().Where(s => s.nom == Id).Select(s => s);
+
+            Activite act1 = new Activite();
+
+            foreach (var item in act) {
+
+
+                act1 = item;
+
+
+            }
+            
+        
+
+            return View(act1);
+
+        }
+        [HttpPost]
+        public ActionResult Edit(FormCollection collection)
+        {
+
+            Utilitaire.Utils.getInstance().updateActivite(collection["nom"],collection["duree"],collection["cout"]);
+
+
+            ViewBag.msg = "Added ";
+        
+
+            return RedirectToAction("Index");
+
+        }
 
     }
 }

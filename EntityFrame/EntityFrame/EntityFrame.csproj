@@ -203,9 +203,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Vote.cshtml" />
     <Content Include="Views\Home\Consulte.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
