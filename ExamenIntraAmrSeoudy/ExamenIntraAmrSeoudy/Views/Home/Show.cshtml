@@ -1,0 +1,45 @@
+﻿@model List<ExamenIntraAmrSeoudy.Models.Information>
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<p>
+    @Html.ActionLink("Go to Search By name ", "Consult")
+</p>
+<table class="table">
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kilo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ville)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fraisResturant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+   
+    </tr>
+}
+
+</table>
