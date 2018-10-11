@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace SentaseDeProject
+namespace ProjetDeSentase
 {
     public class BundleConfig
     {
